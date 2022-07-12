@@ -9,7 +9,6 @@ from days.GenericDay import GenericDay
 import pandas as pd
 
 import tkinter as tk
-import tkinter.ttk as ttk
 import threading, queue
 
 class Day3(GenericDay):
@@ -107,7 +106,7 @@ class Day3(GenericDay):
         def finishProgress():
             popup.progress.stop()
             popup.progress.destroy()
-            popup.progress = ttk.Progressbar(popup, orient=tk.HORIZONTAL, mode='determinate')
+            popup.progress = tk.ttk.Progressbar(popup, orient=tk.HORIZONTAL, mode='determinate')
             popup.progress['value'] = 100
             popup.progress.pack()
             #popup.progress.destroy()
@@ -123,7 +122,7 @@ class Day3(GenericDay):
         popup = tk.Tk()
         popup.title(self.name)
         
-        popup.progress = ttk.Progressbar(popup, orient=tk.HORIZONTAL, mode='indeterminate')
+        popup.progress = tk.ttk.Progressbar(popup, orient=tk.HORIZONTAL, mode='indeterminate')
         popup.progress.start()
         popup.progress.pack()
                 
