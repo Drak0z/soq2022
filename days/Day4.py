@@ -138,6 +138,7 @@ class Day4(GenericDay):
         pos = self.findStartPosition(midwayMap)
         
         outOfBounds = False
+        mouthOnFire = False
         while(not outOfBounds):
             prev_x = pos.x
             prev_y = pos.y
@@ -151,13 +152,18 @@ class Day4(GenericDay):
                 if item != ".":
                     idx = self.foodDf.loc[self.foodDf["Map Symbol"] == item] 
                     food = idx.iloc[0]
-                    midwayMap.totalCalories += food.Calories
+                    if (not(item == "F" and mouthOnFire)):
+                        midwayMap.totalCalories += food.Calories
                     if (food.Direction == "L"):
                         pos.turnLeft()
                     elif(food.Direction == "R"):
                         pos.turnRight()
                     elif(food.Direction == "F"):
                         pass # We automatically "move forward" next cycle
+                    if item == "F":
+                        mouthOnFire = True
+                    elif item == "D":
+                        mouthOnFire = False
                         
         return midwayMap
     
