@@ -53,27 +53,10 @@ class Day4(GenericDay):
             s = ""
             for y in range(self.height):
                 for x in range(self.width):
-                    c = self.getItem(x, y)
-                    if c == "X":
-                        c = c
-                    elif (self.visitedMap[y][x] == 1):
-                        c = c
-                    elif (self.visitedMap[y][x] == 2):
-                        c = c
-                    else:
-                        c = c
-                    s += c
+                    s += self.getItem(x, y) 
                 s += "\n"
             return s
-            
-    class Food(object):
-        def __init__(self, food, calories, symbol, direction):
-            self.food = food
-            self.calories = calories
-            self.symbol = symbol
-            self.direction = direction
-            pass
-            
+           
     class Position(object):
         def __init__(self):
             self.x = 0
