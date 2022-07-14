@@ -13,6 +13,7 @@ from days.Day3 import Day3
 from days.Day4 import Day4
 from days.Day5 import Day5
 from days.Day6 import Day6
+from days.Day7 import Day7
 
 # Test Cases
 # Day0 - First power of 2 to go over 10 is 16
@@ -35,11 +36,16 @@ t3 = Day3("./data/day3_testdata.csv")
 assert t3.getSolution() == 60
 del t3
 
-
 # Day4: Given input testdata, produce 7498 as output
 t4 = Day4("./data/day4_testdata.txt", "./data/day4_foods.csv")
 assert t4.getSolution() == 7498
 del t4
+
+
+# Day4: Given input testdata, produce 12 as output
+t7 = Day7("./data/day7_sheepsum.test.txt")
+assert t7.getSolution() == 12
+del t7
 
 # Actual implementation
 #Let's make ourselves a window with buttons
@@ -94,6 +100,11 @@ d5_button.grid(row=2, column=2, padx=2, pady=2)
 d6 = Day6()
 d6_button = tk.Button(root, text = 'Solve Day6', command = d6.solve)
 d6_button.grid(row=3, column=0, padx=2, pady=2)
+
+
+d7 = Day7("./data/day7_sheepsum.2.txt")
+d7_button = tk.Button(root, text = 'Solve Day7', command = d7.solve)
+d7_button.grid(row=3, column=1, padx=2, pady=2)
 
 try:
     from ctypes import windll
