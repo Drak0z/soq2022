@@ -12,6 +12,7 @@ from days.Day2 import Day2
 from days.Day3 import Day3
 from days.Day4 import Day4
 from days.Day5 import Day5
+from days.Day6 import Day6
 
 # Test Cases
 # Day0 - First power of 2 to go over 10 is 16
@@ -88,6 +89,11 @@ d4_button.grid(row=2, column=1, padx=2, pady=2)
 d5 = Day5("CUbWn UWffUi.UsioUh q.Whaf ZUliXinUehiqUcnUWffmUqcnbUsiolUNcenieUWhZUsiolUZcmYiUZWhY mVUQb hUCUqWmUsiolUWa Uq Uom ZUniUom UqWmbchaUgWYbch mUniUmnil UZWnWVUufmiUjf Wm UjcYeUojUjloh mVU aamVUWhZU.ilnsUm p hUfcnl mUi.UsiolU.Wpilcn UYiiechaUicfV")
 d5_button = tk.Button(root, text = 'Solve Day5', command = d5.solve)
 d5_button.grid(row=2, column=2, padx=2, pady=2)
+
+
+d6 = Day6()
+d6_button = tk.Button(root, text = 'Solve Day6', command = d6.solve)
+d6_button.grid(row=3, column=0, padx=2, pady=2)
 
 try:
     from ctypes import windll
