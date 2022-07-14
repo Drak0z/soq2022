@@ -8,6 +8,45 @@ Created on Thu Jun 30 10:59:55 2022
 from days.GenericDay import GenericDay
 
 class Day6(GenericDay):
+    class Art(object):
+        def __init__(self, data_length):
+            self.art_map = []
+            self.data_length = data_length
+            pass
+        
+        def expandY(self, max_y):
+            y = len(self.art_map)
+            while y <= max_y:
+                self.art_map.append([])
+                y += 1
+                pass
+            pass
+        
+        def expandX(self, y, max_x):                
+            x = len(self.art_map[y])
+            while x <= max_x:
+                self.art_map[y].append("".ljust(self.data_length, " "))
+                x += 1
+                pass
+            pass
+            
+        def addDataAt(self, data, x, y):
+            data = data.ljust(self.data_length, " ")
+            self.expandY(y)
+            self.expandX(y, x)
+            self.art_map[y][x] = data
+            pass
+        
+        def __str__(self):
+            result = ""
+            for y in range(len(self.art_map)):
+                for x in range(len(self.art_map[y])):
+                    result += self.art_map[y][x]
+                result += "\n"
+                pass
+            return result
+            
+        
     def __init__(self):
         GenericDay.__init__(self, "Day6 solution")
         self.fileName = "./data/day6_data.csv"
@@ -18,39 +57,20 @@ class Day6(GenericDay):
         return lines
 
     def getSolution(self):
-        result = 0
         data_length = 8
         
-        art = []
+        art = self.Art(data_length)
         garbledData = self.readFile()
         
         for i in range(len(garbledData)):
             line = garbledData[i]
             col = line.split(",")
-            #col[0] = row
-            row = int(col[0])
-            #col[1] = column
-            column = int(col[1])
-            #col[2] = 8-character segment
-            data = str(col[2]).ljust(data_length, " ")
-            y = len(art)
-            while y <= row:
-                art.append([])
-                y += 1
-                
-            x = len(art[row])
-            while x <= column:
-                art[row].append("".ljust(data_length, " "))
-                x += 1
-            
-            #print(f"Data at {row},{column}: {art[row]}")
-            art[row][column] = data
+            y = int(col[0])
+            x = int(col[1])
+            data = str(col[2])
+            art.addDataAt(data, x, y)
 
-        for y in range(len(art)):
-            line = ""
-            for x in range(len(art[y])):
-                line += art[y][x]
-            print(line)
+        print(art)
             
-        return result
+        return str(art)
     
