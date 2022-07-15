@@ -14,6 +14,7 @@ from days.Day4 import Day4
 from days.Day5 import Day5
 from days.Day6 import Day6
 from days.Day7 import Day7
+from days.Day8 import Day8
 
 # Test Cases
 # Day0 - First power of 2 to go over 10 is 16
@@ -42,10 +43,15 @@ assert t4.getSolution() == 7498
 del t4
 
 
-# Day4: Given input testdata, produce 12 as output
+# Day7: Given input testdata, produce 12 as output
 t7 = Day7("./data/day7_sheepsum.test.txt")
 assert t7.getSolution() == 12
 del t7
+
+# Day8: Looking for the 20th even composite number, the answer is Lauren
+t8 = Day8("./data/day8_TheClownNames.txt", 20)
+assert t8.getSolution() == "Lauren"
+del t8
 
 # Actual implementation
 #Let's make ourselves a window with buttons
@@ -68,43 +74,46 @@ root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 
 #Day 0 button (08-07-2022)
 d0 = Day0(1000000)
-d0_button = tk.Button(root, text = 'Solve Day0', command = d0.solve)
+d0_button = tk.Button(root, text = 'Solve "Rodeo Attendance"', command = d0.solve)
 d0_button.grid(row=1, column=0, padx=2, pady=2)
 
 #Day 1 button (09-07-2022)
 d1 = Day1(1000)
-d1_button = tk.Button(root, text = 'Solve Day1', command = d1.solve)
-d1_button.grid(row=1, column=1, padx=2, pady=2)
+d1_button = tk.Button(root, text = 'Solve "The UNIVAC Fights Back!"', command = d1.solve)
+d1_button.grid(row=2, column=0, padx=2, pady=2)
 
 #Day 2 button (10-07-2022)
 d2 = Day2(10, 1100, 2400)
-d2_button = tk.Button(root, text = 'Solve Day2', command = d2.solve)
-d2_button.grid(row=1, column=2, padx=2, pady=2)
+d2_button = tk.Button(root, text = 'Solve "Primetime at the Midway"', command = d2.solve)
+d2_button.grid(row=3, column=0, padx=2, pady=2)
 
 #Day 3 button (11-07-2022)
 d3 = Day3("./data/day3_data.csv")
-d3_button = tk.Button(root, text = 'Solve Day3', command = d3.solve)
-d3_button.grid(row=2, column=0, padx=2, pady=2)
+d3_button = tk.Button(root, text = 'Solve "An Equilibrium of Sheep and Cows"', command = d3.solve)
+d3_button.grid(row=4, column=0, padx=2, pady=2)
 
 #Day 4 button (12-07-2022)
 d4 = Day4("./data/day4_map.txt", "./data/day4_foods.csv")
-d4_button = tk.Button(root, text = 'Solve Day4', command = d4.solve)
-d4_button.grid(row=2, column=1, padx=2, pady=2)
+d4_button = tk.Button(root, text = 'Solve "Caloric Entrapment"', command = d4.solve)
+d4_button.grid(row=5, column=0, padx=2, pady=2)
 
-
+#Day 4 button (12-07-2022)
 d5 = Day5("CUbWn UWffUi.UsioUh q.Whaf ZUliXinUehiqUcnUWffmUqcnbUsiolUNcenieUWhZUsiolUZcmYiUZWhY mVUQb hUCUqWmUsiolUWa Uq Uom ZUniUom UqWmbchaUgWYbch mUniUmnil UZWnWVUufmiUjf Wm UjcYeUojUjloh mVU aamVUWhZU.ilnsUm p hUfcnl mUi.UsiolU.Wpilcn UYiiechaUicfV")
-d5_button = tk.Button(root, text = 'Solve Day5', command = d5.solve)
-d5_button.grid(row=2, column=2, padx=2, pady=2)
-
+d5_button = tk.Button(root, text = 'Solve "UNIVAC\'s Grand Cipher!"', command = d5.solve)
+d5_button.grid(row=6, column=0, padx=2, pady=2)
 
 d6 = Day6()
-d6_button = tk.Button(root, text = 'Solve Day6', command = d6.solve)
-d6_button.grid(row=3, column=0, padx=2, pady=2)
+d6_button = tk.Button(root, text = 'Solve "Spoiling Breakfast From Above"', command = d6.solve)
+d6_button.grid(row=7, column=0, padx=2, pady=2)
 
-
+#Why is this so slow?
 d7 = Day7("./data/day7_sheepsum.2.txt")
-d7_button = tk.Button(root, text = 'Solve Day7', command = d7.solve)
-d7_button.grid(row=3, column=1, padx=2, pady=2)
+d7_button = tk.Button(root, text = 'Solve "Sheep Drive"', command = d7.solve)
+d7_button.grid(row=8, column=0, padx=2, pady=2)
+
+d8 = Day8("./data/day8_TheClownNames.txt", 5456)
+d8_button = tk.Button(root, text = 'Solve "Clown Scores!!!"', command = d8.solve)
+d8_button.grid(row=9, column=0, padx=2, pady=2)
 
 try:
     from ctypes import windll

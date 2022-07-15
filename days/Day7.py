@@ -33,6 +33,5 @@ class Day7(GenericDay):
             if 3 in data.values: 
                 threeOf += 1 
         
-        print (f"{twoOf} * {threeOf} = {twoOf*threeOf}")
         return twoOf * threeOf
     
